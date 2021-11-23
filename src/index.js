@@ -103,13 +103,78 @@ function loopingArrayPokemonInput(userInputParam) {
 function findMaximumAttackPokemon() {
     const attackFirstPokemon = data[0].stats[1].base_stat
     let attackArray = []
-    for (let index = 1; index <= data.length; index++) {
+    for (let index = 1; index < data.length; index++) {
         if (data[index].stats[1].base_stat > attackFirstPokemon) {
             attackArray[0] = data[index].stats[1].base_stat
             attackArray[1]= data[index].name
         }
     }
     return attackArray
+}
+
+//function to evauleate som fun data from input
+function findMaximumHpPokemon() {
+    const hpFirstPokemon = data[0].stats[0].base_stat
+    let hpArray = []
+    for (let index = 1; index < data.length; index++) {
+        if (data[index].stats[0].base_stat > hpFirstPokemon) {
+            hpArray[0] = data[index].stats[0].base_stat
+            hpArray[1]= data[index].name
+        }
+    }
+    return hpArray
+}
+
+//function to evauleate som fun data from input
+function findMaximumDefensePokemon() {
+    const defenseFirstPokemon = data[0].stats[2].base_stat
+    let defenseArray = []
+    for (let index = 1; index < data.length; index++) {
+        if (data[index].stats[2].base_stat > defenseFirstPokemon) {
+            defenseArray[0] = data[index].stats[2].base_stat
+            defenseArray[1]= data[index].name
+        }
+    }
+    return defenseArray
+}
+
+//function to evauleate som fun data from input
+function findMaximumSpecialAttackPokemon() {
+    const specialAttackFirstPokemon = data[0].stats[3].base_stat
+    let specialAttackArray = []
+    for (let index = 1; index < data.length; index++) {
+        if (data[index].stats[3].base_stat > specialAttackFirstPokemon) {
+            specialAttackArray[0] = data[index].stats[3].base_stat
+            specialAttackArray[1]= data[index].name
+        }
+    }
+    return specialAttackArray
+}
+
+//function to evauleate som fun data from input
+function findMaximumSpecialDefensePokemon() {
+    const specialDefenseFirstPokemon = data[0].stats[4].base_stat
+    let specialDefenseArray = []
+    for (let index = 1; index < data.length; index++) {
+        if (data[index].stats[4].base_stat > specialDefenseFirstPokemon) {
+            specialDefenseArray[0] = data[index].stats[4].base_stat
+            specialDefenseArray[1]= data[index].name
+        }
+    }
+    return specialDefenseArray
+}
+
+//function to evauleate som fun data from input
+function findMaximumSpeedPokemon() {
+    const speedFirstPokemon = data[0].stats[5].base_stat
+    let speedArray = []
+    for (let index = 1; index < data.length; index++) {
+        if (data[index].stats[1].base_stat > speedFirstPokemon) {
+            speedArray[0] = data[index].stats[5].base_stat
+            speedArray[1]= data[index].name
+        }
+    }
+    return speedArray
 }
 
 //function to evauleate som fun data from input
@@ -134,3 +199,35 @@ loopingArrayPokemonInput(userInputPokemon)
 const finalResultAttack = findMaximumAttackPokemon()
 alert(`Pokemon with highest attack has : ${finalResultAttack[0]} 
 and name : ${finalResultAttack[1]}`)
+console.log(`Pokemon with highest attack has : ${finalResultAttack[0]} 
+and name : ${finalResultAttack[1]}`)
+
+const finalResultHp = findMaximumHpPokemon()
+alert(`Pokemon with highest hp has : ${finalResultHp[0]} 
+and name : ${finalResultHp[1]}`)
+console.log(`Pokemon with highest hp has : ${finalResultHp[0]} 
+and name : ${finalResultHp[1]}`)
+
+const finalResultDefense = findMaximumDefensePokemon()
+alert(`Pokemon with highest defense has : ${finalResultDefense[0]} 
+and name : ${finalResultHp[1]}`)
+console.log(`Pokemon with highest defense has : ${finalResultDefense[0]} 
+and name : ${finalResultHp[1]}`)
+
+const finalResultSpecialAttack = findMaximumSpecialAttackPokemon()
+alert(`Pokemon with highest special attack has : ${finalResultSpecialAttack[0]} 
+and name : ${finalResultSpecialAttack[1]}`)
+console.log(`Pokemon with highest special attack has : ${finalResultSpecialAttack[0]} 
+and name : ${finalResultSpecialAttack[1]}`)
+
+const finalResultSpecialDefense = findMaximumSpecialDefensePokemon()
+alert(`Pokemon with highest special defense has : ${finalResultSpecialDefense[0]} 
+and name : ${finalResultSpecialDefense[1]}`)
+console.log(`Pokemon with highest special defense has : ${finalResultSpecialDefense[0]} 
+and name : ${finalResultSpecialDefense[1]}`)
+
+const finalResultSpecialSpeed = findMaximumSpeedPokemon()
+alert(`Pokemon with highest speed has : ${finalResultSpeed[0]} 
+and name : ${finalResultSpecialSpeed[1]}`)
+console.log(`Pokemon with highest speed has : ${finalResultSpeed[0]} 
+and name : ${finalResultSpecialSpeed[1]}`)
