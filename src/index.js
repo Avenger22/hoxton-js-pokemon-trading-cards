@@ -60,7 +60,6 @@ function createCardPokemon(title, src, hpParam, attackParam, defenseParam, speci
 
 //Here we loop to get data from array and parse it 
 function loopingArrayPokemon() {
-
     for (const element of data) {
         createCardPokemon(
             element.name,
@@ -72,9 +71,66 @@ function loopingArrayPokemon() {
             element.stats[4].base_stat, 
             element.stats[5].base_stat
         )
-    }
 
+        console.log(`Name of the Pokemon : ${element.name}
+        and the source of img is : ${element.sprites.other["official-artwork"].front_default}
+        and the HP: ${element.stats[0].base_stat}
+        and the Attack: ${element.stats[1].base_stat}
+        and the Defense: ${element.stats[2].base_stat}
+        and the Special Attack: ${element.stats[3].base_stat}
+        and the Special Defense: ${element.stats[4].base_stat}
+        and the Speed: ${element.stats[5].base_stat}`)
+    }
+}
+
+//function to evauleate som fun data from input
+function loopingArrayPokemonInput(userInputParam) {
+    for (const element of data) {
+        if (element.name === userInputParam) {
+            alert(`Name of the Pokemon : ${element.name}
+            and the source of img is : ${element.sprites.other["official-artwork"].front_default}
+            and the HP: ${element.stats[0].base_stat}
+            and the Attack: ${element.stats[1].base_stat}
+            and the Defense: ${element.stats[2].base_stat}
+            and the Special Attack: ${element.stats[3].base_stat}
+            and the Special Defense: ${element.stats[4].base_stat}
+            and the Speed: ${element.stats[5].base_stat}`)
+        }
+    }
+}
+
+//function to evauleate som fun data from input
+function findMaximumAttackPokemon() {
+    const attackFirstPokemon = data[0].stats[1].base_stat
+    let attackArray = []
+    for (let index = 1; index <= data.length; index++) {
+        if (data[index].stats[1].base_stat > attackFirstPokemon) {
+            attackArray[0] = data[index].stats[1].base_stat
+            attackArray[1]= data[index].name
+        }
+    }
+    return attackArray
+}
+
+//function to evauleate som fun data from input
+function checkingUserInputPokemon(userInputPokemonParam) {
+    if (Number(userInputPokemonParam)) {
+        alert("Dont troll or we will ban from the server, enter a NAME not number !!!")
+        if (Number(userInputPokemonParam)) {
+            throw new Error("Ban Him, enters numbers, not string")
+        }
+    }
 }
 
 //call the function and get pokemons in page
 loopingArrayPokemon()
+
+let userInputPokemon = prompt("Enter wich name of pokemon you would like to be displayed in console :")
+alert("Now we will evaluate data in the console.")
+
+checkingUserInputPokemon(userInputPokemon)
+loopingArrayPokemonInput(userInputPokemon)
+
+const finalResultAttack = findMaximumAttackPokemon()
+alert(`Pokemon with highest attack has : ${finalResultAttack[0]} 
+and name : ${finalResultAttack[1]}`)
