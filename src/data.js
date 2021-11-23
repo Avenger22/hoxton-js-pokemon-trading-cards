@@ -224,6 +224,7 @@ const data = [
         }
       }
     },
+    
     stats: [
       {
         base_stat: 45,
